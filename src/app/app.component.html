@@ -1,3 +1,25 @@
-<div>
-  <h1>{{ title }}</h1>
+<div class="container p-4">
+  <div class="alert alert-success" role="alert">
+    Funcionário <b>{{ nome }}</b> cadastrado com sucesso!
+  </div>
+
+  <div class="form-group mb-4">
+    <label for="form-example">Nome</label>
+    <input
+      type="text"
+      class="form-control"
+      id="form-example"
+      placeholder="Digite aqui o nome"
+      #nomeInput
+      (input)="alterar($event)"
+    >
+  </div>
+
+  <button
+    class="btn btn-primary"
+    (click)="adicionar(nomeInput.value)"
+    [disabled]="nome.length == 0"
+  >
+    Adicionar
+  </button>
 </div>
