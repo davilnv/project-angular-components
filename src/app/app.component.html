@@ -1,5 +1,5 @@
 <div class="container p-4">
-  <div class="alert alert-success" role="alert">
+  <div class="alert alert-success" role="alert" [hidden]="!adicionado">
     Funcionário <b>{{ nome }}</b> cadastrado com sucesso!
   </div>
 
@@ -10,16 +10,28 @@
       class="form-control"
       id="form-example"
       placeholder="Digite aqui o nome"
-      #nomeInput
-      (input)="alterar($event)"
+      [(ngModel)]="nome"
+      (focus)="adicionado = false"
     >
   </div>
 
   <button
     class="btn btn-primary"
-    (click)="adicionar(nomeInput.value)"
+    (click)="adicionar()"
     [disabled]="nome.length == 0"
   >
     Adicionar
   </button>
+  <div class="row" style="margin-top: 20px;">
+    <!---->
+    <div class="col-2" *ngFor="let func of funcionarios">
+      <div class="card">
+        <img src="https://randomuser.me/api/portraits/men/{{func.id}}.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          {{func.nome}}
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
