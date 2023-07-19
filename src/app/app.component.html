@@ -25,13 +25,7 @@
   <div class="row" style="margin-top: 20px;">
     <!---->
     <div class="col-2" *ngFor="let func of funcionarios">
-      <div class="card">
-        <img src="https://randomuser.me/api/portraits/men/{{func.id}}.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          {{func.nome}}
-        </div>
-      </div>
+      <app-funcionario-card [obj]="func"></app-funcionario-card>
     </div>
   </div>
-
 </div>
