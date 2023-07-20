@@ -1,29 +1,8 @@
 <div class="container p-4">
-  <div class="alert alert-success" role="alert" [hidden]="!adicionado">
-    Funcionário <b>{{ nome }}</b> cadastrado com sucesso!
-  </div>
 
-  <div class="form-group mb-4">
-    <label for="form-example">Nome</label>
-    <input
-      type="text"
-      class="form-control"
-      id="form-example"
-      placeholder="Digite aqui o nome"
-      [(ngModel)]="nome"
-      (focus)="adicionado = false"
-    >
-  </div>
+  <app-funcionario-form (funcionarioAdicionado)="aoAdicionar($event)"></app-funcionario-form>
 
-  <button
-    class="btn btn-primary"
-    (click)="adicionar()"
-    [disabled]="nome.length == 0"
-  >
-    Adicionar
-  </button>
   <div class="row" style="margin-top: 20px;">
-    <!---->
     <div class="col-2" *ngFor="let func of funcionarios">
       <app-funcionario-card [obj]="func"></app-funcionario-card>
     </div>
