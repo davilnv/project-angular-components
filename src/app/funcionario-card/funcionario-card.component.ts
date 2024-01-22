@@ -24,7 +24,7 @@ export class FuncionarioCardComponent {
 
   getEstilosCartao() {
     return {
-      'border-width.px': this.funcionario.id,
+      // 'border-width.px': this.funcionario.id,
 
       backgroundColor: this.funcionario.id % 2 === 0 ? 'lightblue' : 'lightgreen'
     };
